@@ -1,0 +1,133 @@
+//every array method
+
+var number=[1,2,3,4]
+console.log(task1(number))
+
+function task1(array)
+{
+   var count=0
+   for(var i=0;i<array.length;i++)
+   {
+      if (array[i]>=1){
+         count++
+      }
+   }
+   if (count==array.length){
+       return true
+   }
+   else{
+       return false
+   }
+}
+//filter array method
+console.log(task2(number))
+
+function task2(array){
+    var a=[]
+    for(var i=0;i<array.length;i++)
+   {
+      if (array[i]>1){
+         a.push(array[i])
+      }
+   }
+   return a
+
+}
+// find array method
+console.log(task3(number))
+
+function task3(array){
+    for(var i=0;i<array.length;i++)
+   {
+      if (array[i]>1){
+         return array[i]
+         break
+      }
+   }
+
+}
+
+//findindex
+
+console.log(task4(number))
+
+function task4(array){
+    for(var i=0;i<array.length;i++)
+   {
+      if (array[i]>1){
+         return i
+         break
+      }
+   }
+
+}
+
+
+var arr1 = [1,2,[3,4,[5,6]]]
+
+//console.log(arr1.flat())
+
+function myFlat(arr){
+    temp = []
+    for(var i=0;i<arr.length;i++){
+
+        if(typeof(arr[i]) == 'number'){
+            temp.push(arr[i])
+        }
+        if(typeof(arr[i]) === 'object'){
+            for(var j=0;j<arr[i].length;j++){
+                temp.push(arr[i][j])
+            }
+        }
+
+    }
+    return temp
+}
+
+console.log(myFlat(arr1))
+
+//implementing flatMap method
+
+var array2 = [1,2,[3,[4,5,6]]]
+
+function change(val){
+    return val*2
+}
+
+function myMap(arr,fun){
+    temp = []
+    for(var i=0;i<arr.length;i++){
+        temp.push(fun(arr[i]))
+    }
+    return temp
+}
+
+console.log(array2.map(change))
+console.log(array2.flatMap(change))
+
+function myFlatMap(arr,fun){
+    temp = myMap(arr,fun)
+    temp1 = myFlat(temp)
+    return temp1
+}
+
+console.log(myFlatMap(array2,change))
+
+var someArray = [1,2,3,4]
+
+//implementing some method
+console.log(someArray.some(isBig))
+
+function mySome(arr,fun){
+    flag = false
+    for(var i=0;i<arr.length;i++){
+        if(fun(arr[i])){
+            flag = true
+            break
+        }
+    }
+    return flag
+}
+
+console.log(mySome(someArray,isBig))
+
